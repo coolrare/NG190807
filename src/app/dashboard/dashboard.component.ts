@@ -21,4 +21,12 @@ export class DashboardComponent implements OnInit {
     this.router.navigateByUrl('/components/buttons/' + type);
   }
 
+  goCards(num) {
+    this.router.navigate(['/components/cards'], {
+      queryParams: {
+        key: num
+      }
+    });
+  }
+
 }
