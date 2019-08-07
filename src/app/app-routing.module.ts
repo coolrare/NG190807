@@ -19,6 +19,11 @@ const routes: Routes = [
     children: [
       {
         path: 'buttons',
+        redirectTo: '/components/buttons/1',
+        pathMatch: 'full'
+      },
+      {
+        path: 'buttons/:type',
         component: ButtonsComponent
       },
       {
@@ -34,11 +39,12 @@ const routes: Routes = [
   {
     path: 'tables',
     component: TablesComponent
-  },
-  {
-    path: '**',
-    component: NotFoundComponent
   }
+  // ,
+  // {
+  //   path: '**',
+  //   component: NotFoundComponent
+  // }
 ];
 
 @NgModule({
