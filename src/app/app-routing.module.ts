@@ -6,7 +6,8 @@ import { Page2Component } from './page2/page2.component';
 const routes: Routes = [
   {
     path: '',
-    component: Page1Component
+    redirectTo: '/page1',
+    pathMatch: 'full'
   },
   {
     path: 'page1',
@@ -14,6 +15,10 @@ const routes: Routes = [
   },
   {
     path: 'page2',
+    component: Page2Component
+  },
+  {
+    path: '**',
     component: Page2Component
   }
 ];
