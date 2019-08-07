@@ -19,7 +19,7 @@ export class CardsComponent implements OnInit {
   }
 
   inc() {
-    this.router.navigate(['../cards'], {
+    this.router.navigate(['.'], {
       relativeTo: this.route,
       queryParams: { key: (+this.key) + 1 }
     });
