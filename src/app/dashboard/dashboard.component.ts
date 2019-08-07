@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { chartPieDemo } from '../chartPieDemo';
 import { chartAreaDemo } from '../chartAreaDemo';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,11 +10,15 @@ import { chartAreaDemo } from '../chartAreaDemo';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     chartAreaDemo();
     chartPieDemo();
+  }
+
+  goButtons(type) {
+    this.router.navigateByUrl('/components/buttons/' + type);
   }
 
 }
