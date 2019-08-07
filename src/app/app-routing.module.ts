@@ -6,11 +6,26 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsComponent } from './charts/charts.component';
 import { TablesComponent } from './tables/tables.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ButtonsComponent } from './components/buttons/buttons.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent
+  },
+  {
+    path: 'components',
+    children: [
+      {
+        path: 'buttons',
+        component: ButtonsComponent
+      },
+      {
+        path: 'cards',
+        component: CardsComponent
+      }
+    ]
   },
   {
     path: 'charts',
