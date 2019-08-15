@@ -26,25 +26,25 @@ form.errors = {{form.errors|json}}</pre>
 
                   <div formArrayName="accounts">
 
-                    <div *ngFor="let email of form.get('accounts')['controls'];
+                    <div *ngFor="let account of form.get('accounts')['controls'];
                                  let i=index" [formGroupName]="i">
 
                       <div class="form-group">
                         <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                               aria-describedby="emailHelp" placeholder="Enter Email Address..."
                               formControlName="email">
-                        <span *ngIf="f.submitted && form.get('account.email')['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
-                        <span *ngIf="f.submitted && form.get('account.email')['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
+                        <span *ngIf="f.submitted && account.get('email')['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
+                        <span *ngIf="f.submitted && account.get('email')['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
                       </div>
-                      <!-- <pre>form.get('account.email').value = {{form.get('account.email').value|json}}
-    form.get('account.email').pristine = {{form.get('account.email').pristine|json}}
-    form.get('account.email').dirty = {{form.get('account.email').dirty|json}}
-    form.get('account.email').touched = {{form.get('account.email').touched|json}}
-    form.get('account.email').untouched = {{form.get('account.email').untouched|json}}
-    form.get('account.email').valid = {{form.get('account.email').valid|json}}
-    form.get('account.email').invalid = {{form.get('account.email').invalid|json}}
-    form.get('account.email').enabled = {{form.get('account.email').enabled|json}}
-    form.get('account.email').errors = {{form.get('account.email').errors|json}}</pre> -->
+                      <pre>account.get('email').value = {{account.get('email').value|json}}
+    account.get('email').pristine = {{account.get('email').pristine|json}}
+    account.get('email').dirty = {{account.get('email').dirty|json}}
+    account.get('email').touched = {{account.get('email').touched|json}}
+    account.get('email').untouched = {{account.get('email').untouched|json}}
+    account.get('email').valid = {{account.get('email').valid|json}}
+    account.get('email').invalid = {{account.get('email').invalid|json}}
+    account.get('email').enabled = {{account.get('email').enabled|json}}
+    account.get('email').errors = {{account.get('email').errors|json}}</pre>
                       <div class="form-group">
                         <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                               placeholder="Password"
