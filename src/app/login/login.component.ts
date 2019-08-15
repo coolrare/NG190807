@@ -1,6 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, Validators, FormArray, AbstractControl } from '@angular/forms';
+
+function MustContainsAt(control: AbstractControl) {
+  if (control.value.indexOf('@') >= 0) {
+    return null;
+  } else {
+    return { must_contains_at: true };
+  }
+}
 
 @Component({
   selector: 'app-login',
@@ -25,11 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.form = this.fb.group({
       accounts: this.fb.array([
         this.fb.group({
-          email: ['', [Validators.required, Validators.email]],
-          pwd: ['', [Validators.required, Validators.minLength(6)]],
-        }),
-        this.fb.group({
-          email: ['', [Validators.required, Validators.email]],
+          email: ['', [Validators.required, MustContainsAt]],
           pwd: ['', [Validators.required, Validators.minLength(6)]],
         })
       ]),
