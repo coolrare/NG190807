@@ -24,31 +24,36 @@ form.enabled = {{form.enabled|json}}
 form.errors = {{form.errors|json}}</pre>
                 <form class="user" [formGroup]="form" #f="ngForm" (ngSubmit)="doLogin(f)">
 
-                <div formGroupName="account">
+                  <div formArrayName="accounts">
 
-                  <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
-                           aria-describedby="emailHelp" placeholder="Enter Email Address..."
-                           formControlName="email">
-                    <span *ngIf="f.submitted && form.get('account.email')['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
-                    <span *ngIf="f.submitted && form.get('account.email')['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
-                  </div>
-                  <pre>form.get('account.email').value = {{form.get('account.email').value|json}}
-form.get('account.email').pristine = {{form.get('account.email').pristine|json}}
-form.get('account.email').dirty = {{form.get('account.email').dirty|json}}
-form.get('account.email').touched = {{form.get('account.email').touched|json}}
-form.get('account.email').untouched = {{form.get('account.email').untouched|json}}
-form.get('account.email').valid = {{form.get('account.email').valid|json}}
-form.get('account.email').invalid = {{form.get('account.email').invalid|json}}
-form.get('account.email').enabled = {{form.get('account.email').enabled|json}}
-form.get('account.email').errors = {{form.get('account.email').errors|json}}</pre>
-                  <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword"
-                           placeholder="Password"
-                           formControlName="pwd">
-                  </div>
+                    <div *ngFor="let email of form.get('accounts')['controls'];
+                                 let i=index" [formGroupName]="i">
 
-                </div>
+                      <div class="form-group">
+                        <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                              aria-describedby="emailHelp" placeholder="Enter Email Address..."
+                              formControlName="email">
+                        <span *ngIf="f.submitted && form.get('account.email')['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
+                        <span *ngIf="f.submitted && form.get('account.email')['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
+                      </div>
+                      <!-- <pre>form.get('account.email').value = {{form.get('account.email').value|json}}
+    form.get('account.email').pristine = {{form.get('account.email').pristine|json}}
+    form.get('account.email').dirty = {{form.get('account.email').dirty|json}}
+    form.get('account.email').touched = {{form.get('account.email').touched|json}}
+    form.get('account.email').untouched = {{form.get('account.email').untouched|json}}
+    form.get('account.email').valid = {{form.get('account.email').valid|json}}
+    form.get('account.email').invalid = {{form.get('account.email').invalid|json}}
+    form.get('account.email').enabled = {{form.get('account.email').enabled|json}}
+    form.get('account.email').errors = {{form.get('account.email').errors|json}}</pre> -->
+                      <div class="form-group">
+                        <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                              placeholder="Password"
+                              formControlName="pwd">
+                      </div>
+
+                    </div>
+
+                  </div>
 
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
