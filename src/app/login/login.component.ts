@@ -9,8 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit, OnDestroy {
 
   data: any = {
-    email: 'will.huang@miniasp.com',
-    pwd: '123',
+    email: '',
+    pwd: '',
     rememberMe: true
   };
 

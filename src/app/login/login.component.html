@@ -17,12 +17,20 @@
                   <div class="form-group">
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                            aria-describedby="emailHelp" placeholder="Enter Email Address..."
-                           name="email" [(ngModel)]="data.email">
+                           name="email" [(ngModel)]="data.email" #tEmail="ngModel"
+                           required minlength="3" maxlength="128" email>
                   </div>
+                  <pre>tEmail.value = {{tEmail.value|json}}
+tEmail.pristine = {{tEmail.pristine|json}}
+tEmail.dirty = {{tEmail.dirty|json}}
+tEmail.touched = {{tEmail.touched|json}}
+tEmail.untouched = {{tEmail.untouched|json}}
+tEmail.enabled = {{tEmail.enabled|json}}
+tEmail.errors = {{tEmail.errors|json}}</pre>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password"
-                           name="pwd" [(ngModel)]="data.pwd">
+                           name="pwd" [(ngModel)]="data.pwd" #tPwd="ngModel">
                   </div>
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
