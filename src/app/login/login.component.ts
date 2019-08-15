@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -47,6 +47,14 @@ export class LoginComponent implements OnInit, OnDestroy {
       const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
       this.router.navigateByUrl(returnUrl);
     }
+  }
+
+  addNewAccount() {
+    const accounts = this.form.get('accounts') as FormArray;
+    accounts.push(this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      pwd: ['', [Validators.required, Validators.minLength(6)]],
+    }));
   }
 
 }
