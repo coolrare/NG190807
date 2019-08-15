@@ -30,18 +30,18 @@ form.errors = {{form.errors|json}}</pre>
                     <input type="email" class="form-control form-control-user" id="exampleInputEmail"
                            aria-describedby="emailHelp" placeholder="Enter Email Address..."
                            formControlName="email">
-                    <!-- <span *ngIf="form.submitted && tEmail['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
-                    <span *ngIf="form.submitted && tEmail['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span> -->
+                    <span *ngIf="f.submitted && form.get('email')['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
+                    <span *ngIf="f.submitted && form.get('email')['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
                   </div>
-                  <!-- <pre>tEmail.value = {{tEmail.value|json}}
-tEmail.pristine = {{tEmail.pristine|json}}
-tEmail.dirty = {{tEmail.dirty|json}}
-tEmail.touched = {{tEmail.touched|json}}
-tEmail.untouched = {{tEmail.untouched|json}}
-tEmail.valid = {{tEmail.valid|json}}
-tEmail.invalid = {{tEmail.invalid|json}}
-tEmail.enabled = {{tEmail.enabled|json}}
-tEmail.errors = {{tEmail.errors|json}}</pre> -->
+                  <pre>form.get('email').value = {{form.get('email').value|json}}
+form.get('email').pristine = {{form.get('email').pristine|json}}
+form.get('email').dirty = {{form.get('email').dirty|json}}
+form.get('email').touched = {{form.get('email').touched|json}}
+form.get('email').untouched = {{form.get('email').untouched|json}}
+form.get('email').valid = {{form.get('email').valid|json}}
+form.get('email').invalid = {{form.get('email').invalid|json}}
+form.get('email').enabled = {{form.get('email').enabled|json}}
+form.get('email').errors = {{form.get('email').errors|json}}</pre>
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user" id="exampleInputPassword"
                            placeholder="Password"
