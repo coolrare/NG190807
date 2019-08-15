@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +9,24 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
+  form: FormGroup;
+
   data: any = {
     email: '',
     pwd: '',
     rememberMe: true
   };
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
     document.body.className = 'bg-gradient-primary';
+
+    this.form = this.fb.group({
+      email: '',
+      pwd: '',
+      rememberMe: true
+    });
   }
 
   ngOnDestroy(): void {
