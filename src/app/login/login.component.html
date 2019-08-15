@@ -19,8 +19,8 @@
                            aria-describedby="emailHelp" placeholder="Enter Email Address..."
                            name="email" [(ngModel)]="data.email" #tEmail="ngModel"
                            required minlength="3" maxlength="128" email>
-                    <span *ngIf="tEmail['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
-                    <span *ngIf="tEmail['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
+                    <span *ngIf="form.submitted && tEmail['errors']?.required" style="color: red">請輸入電子郵件信箱</span>
+                    <span *ngIf="form.submitted && tEmail['errors']?.email" style="color: red">請輸入合法的電子郵件信箱</span>
                   </div>
                   <pre>tEmail.value = {{tEmail.value|json}}
 tEmail.pristine = {{tEmail.pristine|json}}
