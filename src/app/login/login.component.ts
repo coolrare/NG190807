@@ -23,8 +23,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      pwd: ['', [Validators.required, Validators.minLength(6)]],
+      account: this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        pwd: ['', [Validators.required, Validators.minLength(6)]],
+      }),
       rememberMe: true
     });
   }
