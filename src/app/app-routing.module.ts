@@ -8,42 +8,49 @@ import { TablesComponent } from './tables/tables.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
-  },
-  {
-    path: 'utils',
-    loadChildren: () => import('./utils/utils.module').then(m => m.UtilsModule)
-  },
-  {
-    path: 'components',
+    component: LayoutComponent,
     children: [
       {
-        path: 'buttons',
-        redirectTo: '/components/buttons/1',
-        pathMatch: 'full'
+        path: '',
+        component: DashboardComponent
       },
       {
-        path: 'buttons/:type',
-        component: ButtonsComponent
+        path: 'utils',
+        loadChildren: () => import('./utils/utils.module').then(m => m.UtilsModule)
       },
       {
-        path: 'cards',
-        component: CardsComponent
+        path: 'components',
+        children: [
+          {
+            path: 'buttons',
+            redirectTo: '/components/buttons/1',
+            pathMatch: 'full'
+          },
+          {
+            path: 'buttons/:type',
+            component: ButtonsComponent
+          },
+          {
+            path: 'cards',
+            component: CardsComponent
+          }
+        ]
+      },
+      {
+        path: 'charts',
+        component: ChartsComponent
+      },
+      {
+        path: 'tables',
+        component: TablesComponent
       }
     ]
   },
-  {
-    path: 'charts',
-    component: ChartsComponent
-  },
-  {
-    path: 'tables',
-    component: TablesComponent
-  }
   // ,
   // {
   //   path: '**',

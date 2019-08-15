@@ -11,6 +11,7 @@ import { TablesComponent } from './tables/tables.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CardsComponent } from './components/cards/cards.component';
     TablesComponent,
     NotFoundComponent,
     ButtonsComponent,
-    CardsComponent
+    CardsComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
