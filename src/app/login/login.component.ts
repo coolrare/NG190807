@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -24,10 +25,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     document.body.className = '';
   }
 
-  doLogin() {
-    localStorage.setItem('token', '123');
-    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-    this.router.navigateByUrl(returnUrl);
+  doLogin(form: NgForm) {
+    if (form.valid) {
+      localStorage.setItem('token', '123');
+      const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+      this.router.navigateByUrl(returnUrl);
+    }
   }
 
 }
