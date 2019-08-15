@@ -10,6 +10,7 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
       },
       {
         path: 'charts',
-        component: ChartsComponent
+        component: ChartsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'tables',
